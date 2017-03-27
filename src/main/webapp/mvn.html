@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建项目</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <form role="form" method="get" action="/project/project/create">
+                        <div class="form-group">
+                            <label for="projectname">项目名</label><input type="text" class="form-control" name="projectname" id="projectname"
+                                                                       value="" placeholder="小写字母组合，别带特殊符号" pattern="[a-z]{2,20}" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="domain">二级域名</label><input type="text" class="form-control" name="domain" id="domain"
+                                                                       value="" placeholder="不需要http://一级域名是 weixinjia.net" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="domainIp">域名指向的IP</label><input type="text" class="form-control" name="domainIp" id="domainIp"
+                                                                 value="120.76.24.50" placeholder="默认为120.76.24.50" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="database">数据库名</label><input type="text" class="form-control" name="databaseName" id="database"
+                                                                 value="" placeholder="" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="redisdb">redis库名</label><input type="text" class="form-control" name="redisdb" id="redisdb"
+                                                                     value="5" placeholder="" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="groupid">GroupId</label><input type="text" class="form-control" name="groupid" id="groupid"
+                                                                       value="com.weijuju.iag" placeholder="" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="Artifactid">Artifactid</label><input type="text" class="form-control" name="artifactid" id="Artifactid"
+                                                                       value="" placeholder="默认跟项目名一致" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="svnRoot">svnRoot</label><input type="text" class="form-control" name="svnRoot" id="svnRoot"
+                                                                             value="svn://10.170.27.248/recreation/iag/web" placeholder="项目会提交到这个目录下，pom.xml不在svnRoot的目录里，在它的下级目录里" required/>
+                        </div>
+                          <div class="form-group">
+                            <label for="svnRoot">archetype</label><input type="text" class="form-control" name="archetype" id="archetype"
+                                                                       value="springboot.redisson-archetype" placeholder="暂时只有这一种" required/>
+                        </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 column">
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script type="application/javascript">
+    $(function () {
+        $("#projectname").change(function () {
+            var projectName = $("#projectname").val();
+            $("#Artifactid").val(projectName);
+        });
+
+
+    });
+</script>
+</html>
